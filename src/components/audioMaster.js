@@ -91,6 +91,10 @@ export default class AudioMaster {
         }
       }
 
+      function isPaused() {
+        if (!sound.playing()) { playlist = [] }
+      }
+
 
       sound = new Howl({
         src: [`./dist/audio/${sound.src}`],
@@ -100,6 +104,7 @@ export default class AudioMaster {
         loop: false,
         onplay: isPlaying,
         onstop: isStopped,
+        onpause: isPaused
         // onend: function() {
         //   console.log("Sound finished playing!")
         // }

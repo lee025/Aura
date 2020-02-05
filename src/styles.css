@@ -9,35 +9,55 @@ main {
 }
 
 .audio-file {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 10px auto;
-  border: 1px solid rgb(214, 213, 213);
-  box-shadow: 1px 10px 30px -10px rgba(0,0,0,0.5);
+  border: 1px solid #d6d5d5;
+  -webkit-box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   width: 350px;
 }
 
 .audio-file:hover {
   background: white;
-  transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
   color: black;
 }
 
 .audio-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 50%;
 }
 
 .audio-controls button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: .5em;
   width: 20%;
   border-radius: 5px;
+  -webkit-transition: all 0.05s;
   transition: all 0.05s;
 }
 
@@ -45,24 +65,26 @@ main {
   cursor: pointer;
   background: black;
   color: white;
-  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   /* transform: scale(1.1); */
 }
 
 .playing {
-  transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
-
 
 /* LOOP TOGGLE */
 .switch {
   position: relative;
   display: inline-block;
-  /* border: 1px solid red; */
 }
+
 .switch-input {
   display: none;
 }
+
 .switch-label {
   display: block;
   width: 48px;
@@ -70,8 +92,12 @@ main {
   text-indent: -150%;
   clip: rect(0 0 0 0);
   color: transparent;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
+
 .switch-label::before,
 .switch-label::after {
   content: "";
@@ -79,6 +105,7 @@ main {
   position: absolute;
   cursor: pointer;
 }
+
 .switch-label::before {
   width: 80%;
   height: 80%;
@@ -87,6 +114,7 @@ main {
   -webkit-transition: background-color 0.25s ease;
   transition: background-color 0.25s ease;
 }
+
 .switch-label::after {
   top: 0;
   left: 0;
@@ -94,21 +122,28 @@ main {
   height: 19px;
   border-radius: 50%;
   background-color: #fff;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
   -webkit-transition: left 0.25s ease;
   transition: left 0.25s ease;
 }
+
 .switch-input:checked + .switch-label::before {
   background-color: gray;
 }
+
 .switch-input:checked + .switch-label::after {
   left: 19px;
 }
 
 /* SLEEP TIMER DROPDOWN */
 .sleep-timer-cont-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 25px;
 }
 
@@ -117,16 +152,11 @@ main {
 }
 
 .fa-clock {
-  /* background-color: #3498DB;
-  color: white;
-  padding: 16px;
-  border: none; */
   font-size: 20px;
   cursor: pointer;
 }
 
 .fa-clock:hover, .fa-clock:focus {
-  /* background-color: #2980B9; */
   color: #999999;
 }
 
@@ -141,7 +171,8 @@ main {
   background-color: #f1f1f1;
   min-width: 150px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   /* z-index: 1; */
   border-radius: 5px;
 }
@@ -150,7 +181,7 @@ main {
   color: black;
   padding: 12px 45px;
   display: block;
-  border-bottom: 1px solid rgb(168, 167, 167);
+  border-bottom: 1px solid #a8a7a7;
 }
 
 .dd-content .option:last-child {
@@ -166,12 +197,14 @@ main {
 /* .show {
   display: block;
 } */
-
 /* BACKGROUND DROPDOWN */
-
 .background-cont-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 25px;
 }
 
@@ -182,7 +215,6 @@ main {
 }
 
 .fa-images:hover, .fa-images:focus {
-  /* background-color: #2980B9; */
   color: #999999;
 }
 
@@ -198,7 +230,8 @@ main {
   background-color: #f1f1f1;
   min-width: 150px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   /* z-index: 1; */
   border-radius: 5px;
 }
@@ -207,7 +240,7 @@ main {
   color: black;
   padding: 12px 45px;
   display: block;
-  border-bottom: 1px solid rgb(168, 167, 167);
+  border-bottom: 1px solid #a8a7a7;
 }
 
 .bkgd-dd-content .background-opt:last-child {
@@ -225,10 +258,55 @@ main {
 }
 
 /* BACKGROUND OPTIONS */
-
 .black {
-  background: black;
-  color: white;
+  background: #121212;
+  color: #E2E2E2;
+}
+
+.black .audio-file {
+  background: #282828;
+  border: 1px solid #282828;
+  -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+  box-shadow: 0px 19px 38px #0A0A0A;
+  border-radius: 5px;
+  width: 350px;
+}
+
+.black .audio-file:hover {
+  color: #E2E2E2;
+}
+
+.black .audio-controls button {
+  background: #E2E2E2;
+}
+
+.black .audio-controls button:hover {
+  background: #E2E2E2;
+  color: #121212;
+}
+
+.black .switch-label::before {
+  background-color: #E2E2E2;
+}
+
+.black .dd-content .option {
+  background-color: #282828;
+  color: #E2E2E2;
+}
+
+.black .dd-content .option:hover {
+  color: #E2E2E2;
+  opacity: .8;
+}
+
+.black .bkgd-dd-content .background-opt {
+  background-color: #282828;
+  color: #E2E2E2;
+}
+
+.black .bkgd-dd-content .background-opt:hover {
+  background-color: #282828;
+  opacity: .8;
 }
 
 .white {
@@ -243,11 +321,103 @@ main {
   color: white;
 }
 
+.fireplace .audio-file {
+  background: #461809;
+  border: 1px solid #461809;
+  -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+  box-shadow: 0px 19px 38px #0A0A0A;
+  border-radius: 5px;
+  width: 350px;
+}
+
+.fireplace .audio-file:hover {
+  color: #E2E2E2;
+}
+
+.fireplace .audio-controls button {
+  background: #E2E2E2;
+}
+
+.fireplace .audio-controls button:hover {
+  background: #E2E2E2;
+  color: #121212;
+}
+
+.fireplace .switch-label::before {
+  background-color: #E2E2E2;
+}
+
+.fireplace .dd-content .option {
+  background-color: #461809;
+  color: #E2E2E2;
+}
+
+.fireplace .dd-content .option:hover {
+  color: #E2E2E2;
+  opacity: .8;
+}
+
+.fireplace .bkgd-dd-content .background-opt {
+  background-color: #461809;
+  color: #E2E2E2;
+}
+
+.fireplace .bkgd-dd-content .background-opt:hover {
+  background-color: #461809;
+  opacity: .8;
+}
+
 .rain {
   background-image: url("../dist/images/rain-drops.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  color: white
+  color: white;
+}
+
+.rain .audio-file {
+  background: #1D1D1D;
+  border: 1px solid #1D1D1D;
+  -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+  box-shadow: 0px 19px 38px #0A0A0A;
+  border-radius: 5px;
+  width: 350px;
+}
+
+.rain .audio-file:hover {
+  color: #E2E2E2;
+}
+
+.rain .audio-controls button {
+  background: #E2E2E2;
+}
+
+.rain .audio-controls button:hover {
+  background: #E2E2E2;
+  color: #121212;
+}
+
+.rain .switch-label::before {
+  background-color: #E2E2E2;
+}
+
+.rain .dd-content .option {
+  background-color: #1D1D1D;
+  color: #E2E2E2;
+}
+
+.rain .dd-content .option:hover {
+  color: #E2E2E2;
+  opacity: .8;
+}
+
+.rain .bkgd-dd-content .background-opt {
+  background-color: #1D1D1D;
+  color: #E2E2E2;
+}
+
+.rain .bkgd-dd-content .background-opt:hover {
+  background-color: #1D1D1D;
+  opacity: .8;
 }
 
 .winter-street {
@@ -255,3 +425,4 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
 }
+/*# sourceMappingURL=styles.css.map */

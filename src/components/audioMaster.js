@@ -1,17 +1,25 @@
 import AudioFiles from "../../src/audio.json";
 import { Howl, Howler } from "howler";
+import SleepTimer from "./sleepTimer";
 
 const audioElement = document.querySelector("#audio");
 
+// export default class AudioMaster extends SleepTimer {
 export default class AudioMaster {
   constructor(audioElement) {
-    this.ctx = audioElement;
+    // super(timer)
+    // this.ctx = audioElement;
+    // this.timer = timer
     this.addAudioToPage();
+    // this.timer = new SleepTimer();
+    // console.log(this.timer.sleepDropDown)
   }
-
+  
+  
   addAudioToPage() {
+    const timer = new SleepTimer();
+    // console.log(timer.sleepDropDown.timer)
     // debugger
-    // const sounds = JSON.parse(AudioFiles);
     let playlist = [];
 
     AudioFiles.forEach(sound => {
@@ -72,7 +80,6 @@ export default class AudioMaster {
 
 
 
-
       let playTime = 0;
 
       function isPlaying() {
@@ -92,9 +99,8 @@ export default class AudioMaster {
       }
 
       function isPaused() {
-        if (!sound.playing()) { playlist = [] }
+        if(!sound.playing()) { playlist = [] }
       }
-
 
       sound = new Howl({
         src: [`./dist/audio/${sound.src}`],
@@ -104,7 +110,8 @@ export default class AudioMaster {
         loop: false,
         onplay: isPlaying,
         onstop: isStopped,
-        onpause: isPaused
+        onpause: isPaused,
+        onend: isStopped
         // onend: function() {
         //   console.log("Sound finished playing!")
         // }
@@ -113,7 +120,6 @@ export default class AudioMaster {
       playButton.addEventListener("click", () => {
         playlist.length === 0 ? playlist.push(sound.play()) : null;
         console.log(playlist)
-        // console.log("onPlay:after",sound.playing())
       });
 
       pauseButton.addEventListener("click", () => {

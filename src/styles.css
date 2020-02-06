@@ -5,7 +5,10 @@ body {
 main {
   margin-left: 1em;
   margin-right: 1em;
-  padding-bottom: 20px;
+}
+
+#audio {
+  margin-bottom: 10%;
 }
 
 .audio-file {
@@ -278,11 +281,14 @@ main {
 
 .black .audio-controls button {
   background: #E2E2E2;
+  -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+  box-shadow: 0px 19px 38px #0A0A0A;
 }
 
 .black .audio-controls button:hover {
-  background: #E2E2E2;
-  color: #121212;
+  background: #121212;
+  color: #E2E2E2;
+  border: 1px solid #121212;
 }
 
 .black .switch-label::before {
@@ -336,11 +342,14 @@ main {
 
 .fireplace .audio-controls button {
   background: #E2E2E2;
+  -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+  box-shadow: 0px 19px 38px #0A0A0A;
 }
 
 .fireplace .audio-controls button:hover {
-  background: #E2E2E2;
-  color: #121212;
+  background: #121212;
+  color: #E2E2E2;
+  border: 1px solid #121212;
 }
 
 .fireplace .switch-label::before {
@@ -389,11 +398,14 @@ main {
 
 .rain .audio-controls button {
   background: #E2E2E2;
+  -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+  box-shadow: 0px 19px 38px #0A0A0A;
 }
 
 .rain .audio-controls button:hover {
-  background: #E2E2E2;
-  color: #121212;
+  background: #121212;
+  color: #E2E2E2;
+  border: 1px solid #121212;
 }
 
 .rain .switch-label::before {

@@ -4,7 +4,7 @@ const bodyBackground = document.getElementById("body-background");
 
 export default class BackgroundMaster {
   constructor(backgroundButton) {
-    this.ctx = backgroundButton;
+    // this.ctx = backgroundButton;
     this.backgroundDropDown();
 
   }

@@ -238,10 +238,13 @@ main {
   }
   .audio-controls button {
     background: #E2E2E2;
+    -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+          box-shadow: 0px 19px 38px #0A0A0A;
   }
   .audio-controls button:hover {
-    background: #E2E2E2;
-    color: #121212;
+    background: #121212;
+    color: #E2E2E2;
+    border: 1px solid #121212;
   }
   .switch-label::before {
     background-color: #E2E2E2;
@@ -288,10 +291,13 @@ main {
   }
   .audio-controls button {
     background: #E2E2E2;
+    -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+          box-shadow: 0px 19px 38px #0A0A0A;
   }
   .audio-controls button:hover {
-    background: #E2E2E2;
-    color: #121212;
+    background: #121212;
+    color: #E2E2E2;
+    border: 1px solid #121212;
   }
   .switch-label::before {
     background-color: #E2E2E2;
@@ -333,10 +339,13 @@ main {
   }
   .audio-controls button {
     background: #E2E2E2;
-  }
+    -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+          box-shadow: 0px 19px 38px #0A0A0A;
+}
   .audio-controls button:hover {
-    background: #E2E2E2;
-    color: #121212;
+    background: #121212;
+    color: #E2E2E2;
+    border: 1px solid #121212;
   }
   .switch-label::before {
     background-color: #E2E2E2;

@@ -4,13 +4,14 @@ const sleepTimer = document.querySelector("#sleep-timer-cont");
 const sleepTimerButton = document.getElementsByClassName("fa-clock");
 const sleepTimerOptions = document.getElementsByClassName("option");
 
-// export default class SleepTimer extends AudioMaster {
-export default class SleepTimer  {
-  constructor(timer) {
+export default class SleepTimer {
+  constructor() {
     // this.ctx = sleepTimerButton;
     this.sleepDropDown();
+    this.options = [];
+    // console.log("SleepTimer Constructor:", this.options)
   }
-  
+
   sleepDropDown() {
     sleepTimerButton[0].addEventListener("click", () => {
       document.getElementById("sleep-dd").classList.toggle("show");
@@ -25,39 +26,28 @@ export default class SleepTimer  {
 
       let option = sleepTimerOptions.item(i);
       // console.log(option)
-      // debugger
 
       option.addEventListener("click", () => {
+        // debugger
         let int = parseInt(option.textContent.split(" ")[0]);
         let text = option.textContent.split(" ")[1];
-        let interval = setInterval(timer, 1000)
-        // console.log("option:", option, "int:", int, "text:", text)
-    
 
-          if (text === "sec") { start = int }
-          else if (text === "min") { start = Math.floor(int * 60) }
-          else if (text === "hour") { start = int * 3600 }
-          else ( int = 0)
+        if (text === "sec") { start = int }
+        else if (text === "min") { start = Math.floor(int * 60) }
+        else if (text === "hour") { start = int * 3600 }
+        else (int = 0)
 
+        let promise = new Promise((resolve, reject) => {
+          if (this.options.length !== 0) { resolve(this.options.pop()) }
+        })
+        promise
+          .then(this.options.push(start))
+          .catch(err => console.log(err))
+
+        // console.log("sleepDropDown:", this.options)
 
         document.getElementById("sleep-dd").classList.toggle("show");
-        // console.log(start)
 
-        function getSeconds(s) {
-          let min = Math.floor(s / 60);
-          let sec = s % 60
-
-          return min + ":" + sec;
-        };
-
-        function timer() {
-          counter++;
-          sleepTimer.textContent = getSeconds(start - counter);
-          if (counter === start) {
-            // do something
-            clearInterval(interval);
-          }
-        };
       })
     }
   }

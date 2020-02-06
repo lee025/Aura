@@ -3,6 +3,7 @@ import { Howl, Howler } from "howler";
 import SleepTimer from "./sleepTimer";
 
 const audioElement = document.querySelector("#audio");
+const sleepTimer = document.querySelector("#sleep-timer-cont");
 
 // export default class AudioMaster extends SleepTimer {
 export default class AudioMaster {
@@ -10,20 +11,32 @@ export default class AudioMaster {
     // super(timer)
     // this.ctx = audioElement;
     // this.timer = timer
+    this.timer = new SleepTimer().options;
+    // this.setTimer();
     this.addAudioToPage();
-    // this.timer = new SleepTimer();
+    this.currentlyPlaying = [];
+    this.playlist = [];
+    this.end = "";
+    // console.log("constructor-playing:", this.currentlyPlaying)
+    // console.log("constructor-playlist:", this.playlist)
     // console.log(this.timer.sleepDropDown)
   }
-  
-  
-  addAudioToPage() {
-    const timer = new SleepTimer();
-    // console.log(timer.sleepDropDown.timer)
-    // debugger
-    let playlist = [];
 
+  // setTimer(){
+  //   console.log(this.timer)
+  //   this.timer.options === this.end
+  // }
+
+  addAudioToPage() {
+    // const timer = new SleepTimer();
+    // debugger
+    // console.log("addAudioToPage:", this.timer)
+    const that = this;
     AudioFiles.forEach(sound => {
+      // console.log(this.playlist)
       // console.log(sound)
+      // debugger
+
       const audioDiv = document.createElement("div");
       audioDiv.className = "audio-file";
       const audioTitle = document.createElement("h2");
@@ -82,25 +95,39 @@ export default class AudioMaster {
 
       let playTime = 0;
 
+
+
+      function getSeconds(s) {
+        let min = Math.floor(s / 60);
+        let sec = s % 60
+        return min + ":" + sec;
+      };
+
       function isPlaying() {
-        if (sound.playing()) {
+        if (sound.playing() && this.timer.length > 0) {
+          // debugger
           // console.log("audio is playing..." + playTime);
-          // console.log(sound._duration) // returns total length of sound
+          loopButton.setAttribute("checked", true);
+          sound.loop(true);
           playTime++;
+          sleepTimer.textContent = getSeconds(this.timer[0] - playTime);
+
+          if (this.timer[0] === playTime) {
+            clearInterval(interval)
+            sound.stop();
+          }
         }
       }
-      setInterval(isPlaying, 1000)
+      let interval = setInterval(isPlaying.bind(that), 1000)
 
       function isStopped() {
         if (!sound.playing()) {
           playTime = 0;
-          playlist = [];
+          // debugger
+          loopButton.toggleAttribute("checked")
         }
       }
 
-      function isPaused() {
-        if(!sound.playing()) { playlist = [] }
-      }
 
       sound = new Howl({
         src: [`./dist/audio/${sound.src}`],
@@ -108,31 +135,37 @@ export default class AudioMaster {
         // rate: 0.5,
         volume: 0.3,
         loop: false,
-        onplay: isPlaying,
+        onplay: isPlaying.bind(that),
         onstop: isStopped,
-        onpause: isPaused,
         onend: isStopped
         // onend: function() {
         //   console.log("Sound finished playing!")
         // }
+
       });
 
+
       playButton.addEventListener("click", () => {
-        playlist.length === 0 ? playlist.push(sound.play()) : null;
-        console.log(playlist)
+        this.currentlyPlaying.length === 0 ? this.currentlyPlaying.push(sound.play()) : null;
+        if (!sound.playing()) { this.currentlyPlaying.pop() }
+        console.log("play:", this.currentlyPlaying)
+        // console.log(Math.ceil(sound._duration))
       });
 
       pauseButton.addEventListener("click", () => {
-        sound.pause(playlist[0]);
+        sound.pause(this.currentlyPlaying[0]);
+        this.currentlyPlaying.pop();
+        // console.log("pause:", this.currentlyPlaying)
       });
 
       stopButton.addEventListener("click", () => {
-        sound.stop(playlist[0]);
-        console.log(playlist)
+        sound.stop(this.currentlyPlaying[0]);
+        this.currentlyPlaying.pop()
+        console.log("stop:", this.currentlyPlaying)
       })
 
       volumeUp.addEventListener("click", () => {
-        const vol = sound.volume(playlist[0]);
+        const vol = sound.volume(this.currentlyPlaying[0]);
         console.log(sound.volume());
 
         sound.volume(vol + 0.1);
@@ -140,7 +173,7 @@ export default class AudioMaster {
       })
 
       volumeDown.addEventListener("click", () => {
-        var vol = sound.volume(playlist[0]);
+        var vol = sound.volume(this.currentlyPlaying[0]);
         console.log(sound.volume());
 
         sound.volume(vol - 0.1);
@@ -159,8 +192,6 @@ export default class AudioMaster {
           // console.log("false:", sound.loop());
         }
       });
-
-
 
       audioElement.appendChild(audioDiv);
     })

@@ -1,6 +1,6 @@
 module.exports = function(bs) {
   return {
-    // port: process.env.PORT,
+    port: process.env.PORT || 3000,
     // files: ["./**/*.{html,htm,css,js}"],
     server: {
       middleware: {

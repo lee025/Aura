@@ -99,8 +99,8 @@ export default class AudioMaster {
         if (sound.playing() && this.timerStart[0] !== 0) {
           // debugger
           // console.log("audio is playing..." + playTime);
-          loopButton.setAttribute("checked", true);
           sound.loop(true);
+          loopButton.setAttribute("checked", true);
           playTime++;
           sleepTimer.textContent = getSeconds(this.timerStart[0] - playTime);
 
@@ -146,7 +146,7 @@ export default class AudioMaster {
 
       playButton.addEventListener("click", () => {
         this.currentlyPlaying.length === 0 ? this.currentlyPlaying.push(sound.play()) : null;
-        if (!sound.playing()) { this.currentlyPlaying.pop() }
+        // if (!sound.playing()) { this.currentlyPlaying.pop() }
         // if(!this.timerStart.length) {this.timerStart = [0]}
         // console.log(!this.timerStart.length)
 

@@ -14,6 +14,8 @@ module.exports = function(bs) {
   };
 }
 
+// ALSO WORKS!!
+
 // module.exports = {
 //     port: process.env.PORT || 3000,
 //     // files: ["./**/*.{html,htm,css,js}"],

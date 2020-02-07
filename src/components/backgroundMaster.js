@@ -1,6 +1,6 @@
 const backgroundButton = document.getElementsByClassName("fa-images");
 const backgroundOptions = document.getElementsByClassName("background-opt");
-const bodyBackground = document.getElementById("body-background");
+
 
 export default class BackgroundMaster {
   constructor(backgroundButton) {
@@ -23,12 +23,15 @@ export default class BackgroundMaster {
         let text = option.textContent;
         // console.log(text)
 
-        if (text === "Black") {
+        if (text === "Dark Mode") {
           body.className = ""
-          body.classList.add("black")
-        } else if (text === "White") {
+          body.classList.add("dark")
+        } else if (text === "Light Mode") {
           body.className = ""
           body.classList.add("white")
+        } else if (text === "Black Screen") {
+          body.className = ""
+          body.classList.add("black")
         } else if (text === "Fireplace") {
           body.className = ""
           body.classList.add("fireplace")
@@ -44,4 +47,5 @@ export default class BackgroundMaster {
       })
     }
   }
+
 }

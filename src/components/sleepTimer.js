@@ -4,6 +4,7 @@ const sleepTimer = document.querySelector("#sleep-timer-cont");
 const sleepTimerButton = document.getElementsByClassName("fa-clock");
 const sleepTimerOptions = document.getElementsByClassName("option");
 
+// export default class SleepTimer extends AudioMaster {
 export default class SleepTimer {
   constructor() {
     // this.ctx = sleepTimerButton;
@@ -31,11 +32,12 @@ export default class SleepTimer {
         // debugger
         let int = parseInt(option.textContent.split(" ")[0]);
         let text = option.textContent.split(" ")[1];
+        // let interval = setInterval(timer, 1000)
 
         if (text === "sec") { start = int }
         else if (text === "min") { start = Math.floor(int * 60) }
         else if (text === "hour") { start = int * 3600 }
-        else (int = 0)
+        else (start = 0)
 
         let promise = new Promise((resolve, reject) => {
           if (this.options.length !== 0) { resolve(this.options.pop()) }
@@ -45,9 +47,23 @@ export default class SleepTimer {
           .catch(err => console.log(err))
 
         // console.log("sleepDropDown:", this.options)
-
+        sleepTimer.textContent = getSeconds(start);
         document.getElementById("sleep-dd").classList.toggle("show");
+        // console.log(start)
 
+        function getSeconds(s) {
+          let sec = s % 60
+          let min = Math.floor(s / 60);
+          let hr = Math.floor((min / 60));
+
+          return hr + ":" + min + ":" + sec;
+        };
+
+        // function timer() {
+        //   counter++
+        //   sleepTimer.textContent = getSeconds(start - counter)
+        //   if (counter === start) { clearInterval(interval) }
+        // };
       })
     }
   }

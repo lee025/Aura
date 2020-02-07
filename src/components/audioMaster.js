@@ -123,7 +123,7 @@ export default class AudioMaster {
           playTime++;
           sleepTimer.textContent = getSeconds(this.timerStart[0] - playTime);
 
-          if (this.timerStart[0] === playTime) {
+          if (this.timerStart[0] === playTime || playTime <= 0) {
             resetInterval.bind(that);
             // clearInterval(interval)
             sound.stop();

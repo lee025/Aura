@@ -5,36 +5,18 @@ import SleepTimer from "./sleepTimer";
 const audioElement = document.querySelector("#audio");
 const sleepTimer = document.querySelector("#sleep-timer-cont");
 
-// export default class AudioMaster extends SleepTimer {
 export default class AudioMaster {
   constructor(audioElement) {
-    // super(timer)
     // this.ctx = audioElement;
-    // this.timer = timer
     this.timerStart = new SleepTimer().options;
-    // this.setTimer();
     this.addAudioToPage();
     this.currentlyPlaying = [];
     this.playlist = [];
-    this.end = "";
-    // console.log("constructor-playing:", this.currentlyPlaying)
-    // console.log("constructor-playlist:", this.playlist)
-    // console.log(this.timer.sleepDropDown)
   }
 
-  // setTimer(){
-  //   console.log(this.timer)
-  //   this.timer.options === this.end
-  // }
-
   addAudioToPage() {
-    // const timer = new SleepTimer();
-    // debugger
-    // console.log("addAudioToPage:", this.timer)
     const that = this;
     AudioFiles.forEach(sound => {
-      // console.log(this.playlist)
-      // console.log(sound)
       // debugger
 
       const audioDiv = document.createElement("div");
@@ -95,8 +77,6 @@ export default class AudioMaster {
 
       let playTime = 0;
 
-
-
       function getSeconds(s) {
         let sec = s % 60
         let min = Math.floor(s / 60);
@@ -114,8 +94,9 @@ export default class AudioMaster {
       let interval = setInterval(isPlaying.bind(that), 1000)
 
       function isPlaying() {
-        // console.log(this.timer)
-        if (sound.playing() && this.timerStart.length > 0) {
+        if(!this.timerStart.length){this.timerStart.push(0)}
+        // console.log(this.currentlyPlaying)
+        if (sound.playing() && this.timerStart[0] !== 0) {
           // debugger
           // console.log("audio is playing..." + playTime);
           loopButton.setAttribute("checked", true);
@@ -123,12 +104,14 @@ export default class AudioMaster {
           playTime++;
           sleepTimer.textContent = getSeconds(this.timerStart[0] - playTime);
 
-          if (this.timerStart[0] === playTime || playTime <= 0) {
-            resetInterval.bind(that);
-            // clearInterval(interval)
+
+          if (this.timerStart[0] <= playTime ) {
+            console.log("I GOT HIT!")
             sound.stop();
             this.currentlyPlaying.pop()
-            this.timerStart.pop()
+            resetInterval.bind(that);
+            sleepTimer.textContent = ""; // prevent from going neg
+            this.timerStart[0] = 0; // reset timer for play
           }
         } else { resetInterval.bind(that) }
       }
@@ -136,12 +119,14 @@ export default class AudioMaster {
       function isStopped() {
         if (!sound.playing()) {
           playTime = 0;
-          // debugger
+          // loopButton.setAttribute("checked", false);
           loopButton.toggleAttribute("checked");
           resetInterval.bind(that);
         }
       }
-
+      
+      const soundTitles = [];
+      soundTitles.push(sound.title);
 
       sound = new Howl({
         src: [`./dist/audio/${sound.src}`],
@@ -162,8 +147,17 @@ export default class AudioMaster {
       playButton.addEventListener("click", () => {
         this.currentlyPlaying.length === 0 ? this.currentlyPlaying.push(sound.play()) : null;
         if (!sound.playing()) { this.currentlyPlaying.pop() }
+        // if(!this.timerStart.length) {this.timerStart = [0]}
+        // console.log(!this.timerStart.length)
+
         // console.log("play:", this.currentlyPlaying)
         // console.log(Math.ceil(sound._duration))
+        // document.getElementById("playing").classList.add("show")
+        // document.getElementById("audio").classList.add("hidden");
+        // const playingTitle = document.createElement("div");
+        // playingTitle.className = "playing-title";
+        // playingTitle.textContent = "Currently playing:" + soundTitles[0];
+        // document.getElementById("playing").appendChild(playingTitle);
       });
 
       pauseButton.addEventListener("click", () => {
@@ -175,6 +169,8 @@ export default class AudioMaster {
       stopButton.addEventListener("click", () => {
         sound.stop(this.currentlyPlaying[0]);
         this.currentlyPlaying.pop()
+        loopButton.setAttribute("checked", false);
+
         // console.log("stop:", this.currentlyPlaying)
       })
 
@@ -195,15 +191,11 @@ export default class AudioMaster {
       })
 
       loopButton.addEventListener("change", e => {
-        // console.log("toggle-sound:", sound)
         const loop = sound.loop();
-        // console.log("loop:", loop)
         if (e.target.checked) {
           sound.loop(true);
-          // console.log("true:", !sound.loop());
         } else {
           sound.loop(false);
-          // console.log("false:", sound.loop());
         }
       });
 

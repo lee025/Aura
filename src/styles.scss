@@ -11,6 +11,13 @@ main {
   margin-bottom: 10%;
 }
 
+.volume-control-cont {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0px;
+  width: 100%;
+}
+
 .audio-file {
   display: flex;
   flex-direction: column;

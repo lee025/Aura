@@ -21,6 +21,8 @@ export default class AudioMaster {
 
       const audioDiv = document.createElement("div");
       audioDiv.className = "audio-file";
+      audioDiv.setAttribute("id", sound.title);
+
       const audioTitle = document.createElement("h2");
       audioTitle.textContent = sound.title;
       audioDiv.appendChild(audioTitle);
@@ -44,17 +46,6 @@ export default class AudioMaster {
       stopButton.textContent = "◼︎";
       audioControls.appendChild(stopButton);
       stopButton.className = "stop-button";
-
-      // Volume Controls
-      const volumeUp = document.createElement("button");
-      volumeUp.textContent = "+";
-      audioControls.appendChild(volumeUp);
-      volumeUp.className = "volume-up";
-
-      const volumeDown = document.createElement("button");
-      volumeDown.textContent = "−";
-      audioControls.appendChild(volumeDown);
-      volumeDown.className = "volume-down";
 
       // toggle loop button
       const loopDiv = document.createElement("div");
@@ -106,7 +97,7 @@ export default class AudioMaster {
 
 
           if (this.timerStart[0] <= playTime ) {
-            console.log("I GOT HIT!")
+            // console.log("I GOT HIT!")
             sound.stop();
             this.currentlyPlaying.pop()
             resetInterval.bind(that);
@@ -174,21 +165,24 @@ export default class AudioMaster {
         // console.log("stop:", this.currentlyPlaying)
       })
 
-      volumeUp.addEventListener("click", () => {
-        const vol = sound.volume(this.currentlyPlaying[0]);
-        console.log(sound.volume());
+      const volumeControl = document.getElementById("vol-control")
+      volumeControl.value = sound.volume();
+      
+      function setVolume(){
+        let control = volumeControl.value;
+        let vol = sound.volume();
+        console.log("control:", control);
+        console.log("vol:", vol);
+        if (control !== vol) { vol = sound.volume(vol + (control - vol)) }
+      }
 
-        sound.volume(vol + 0.1);
-        if (vol >= 1) { vol = 1 };
-      })
+      // volumeControl.addEventListener("change", setVolume);
+      // volumeControl.addEventListener("input", setVolume);
+      volumeControl.addEventListener("mouseup", setVolume);
+      volumeControl.addEventListener("click", setVolume);
 
-      volumeDown.addEventListener("click", () => {
-        var vol = sound.volume(this.currentlyPlaying[0]);
-        console.log(sound.volume());
-
-        sound.volume(vol - 0.1);
-        if (vol < 0) { vol = 0 };
-      })
+      console.log("volumeControl:", volumeControl.value)
+      console.log("sound:", sound.volume())
 
       loopButton.addEventListener("change", e => {
         const loop = sound.loop();
@@ -202,5 +196,4 @@ export default class AudioMaster {
       audioElement.appendChild(audioDiv);
     })
   }
-
 }

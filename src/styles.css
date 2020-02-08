@@ -11,6 +11,17 @@ main {
   margin-bottom: 10%;
 }
 
+.volume-control-cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 15px 0px;
+  width: 100%;
+}
+
 .audio-file {
   display: -webkit-box;
   display: -ms-flexbox;

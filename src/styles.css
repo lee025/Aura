@@ -151,7 +151,7 @@ main {
 }
 
 /* SLEEP TIMER DROPDOWN */
-.sleep-timer-cont-main {
+.top-nav{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -168,6 +168,7 @@ main {
 .fa-clock {
   font-size: 20px;
   cursor: pointer;
+  margin-left: 30px;
 }
 
 .fa-clock:hover, .fa-clock:focus {
@@ -211,6 +212,66 @@ main {
 /* .show {
   display: block;
 } */
+
+/* ABOUT DROPDOWN */
+.fa-comment-dots{
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.fa-comment-dots:hover, .fa-comment-dots:focus {
+  color: #999999;
+}
+
+.about-dd-cont {
+  position: relative;
+  display: inline-block;
+}
+
+.about-dd-content {
+  display: none;
+  position: absolute;
+  left: 20px;
+  background-color: #f1f1f1;
+  min-width: 150px;
+  overflow: auto;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.about-dd-content .about-opt {
+  color: black;
+  padding: 12px 45px;
+  display: block;
+  border-bottom: 1px solid #a8a7a7;
+}
+
+.about-dd-content .about-opt:last-child {
+  border-bottom: none;
+}
+
+.about-dd-content .about-opt:hover {
+  background-color: #999999;
+  color: white;
+  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+
+.description {
+  background: white;
+  border-radius: 5px;
+  width: 50%;
+  left: 25%;
+  position: absolute;
+  padding: 15px;
+  align-items: center;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);}
+
 /* BACKGROUND DROPDOWN */
 .background-cont-main {
   display: -webkit-box;
@@ -224,7 +285,7 @@ main {
 
 .fa-images {
   font-size: 20px;
-  margin-left: 25px;
+  margin-left: 30px;
   cursor: pointer;
 }
 
@@ -465,7 +526,7 @@ main {
   display: none;
 }
 
-.black .sleep-timer-cont-main {
+.black .top-nav{
   color: #E2E2E2;
 }
 /*# sourceMappingURL=styles.css.map */

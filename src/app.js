@@ -1,6 +1,6 @@
 import AudioMaster from "./components/audioMaster";
 import BackgroundMaster from "./components/backgroundMaster";
-// import SleepTimer from "./components/sleepTimer";
+import About from "./components/about";
 
 const audioElement = document.querySelector("#audio");
 new AudioMaster(audioElement);
@@ -8,6 +8,8 @@ new AudioMaster(audioElement);
 const backgroundButton = document.getElementsByClassName("fa-images");
 new BackgroundMaster(backgroundButton);
 
-// const sleepTimerButton = document.getElementsByClassName("fa-clock");
-// new SleepTimer(sleepTimerButton);
+const aboutButton = document.getElementsByClassName("fa-comment-dots");
+new About(aboutButton);
+
+
 

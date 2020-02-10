@@ -23,11 +23,31 @@
     </script>
     <main>
 
-      <section class="sleep-timer-cont-main">
+      <section class="top-nav">
+
+        <div id="about-dd-cont">
+          <div class="far fa-comment-dots"></div>
+          <div id="about-dd" class="about-dd-content">
+            <div class="about-opt">About</div>
+            <div class="about-opt">Description</div>
+          </div>
+        </div>
+
+        <div id="background-dd-cont">
+          <div class="far fa-images"></div>
+          <div id="background-dd" class="bkgd-dd-content">
+            <div class="background-opt">Dark Mode</div>
+            <div class="background-opt">Light Mode</div>
+            <div class="background-opt">Black Screen</div>
+            <div class="background-opt">Fireplace</div>
+            <div class="background-opt">Rain</div>
+            <div class="background-opt">Winter Street</div>
+          </div>
+        </div>
+
         <div id="sleep-dd-cont">
           <div class="far fa-clock"></div>
           <div id="sleep-dd" class="dd-content" >
-            <!-- <div class="option">OFF</div> -->
             <div class="option">OFF</div>
             <div class="option">5 sec</div>
             <div class="option">15 min</div>
@@ -40,19 +60,19 @@
 
         <div id="sleep-timer-cont"></div>
 
-        <div id="background-dd-cont">
-           <div class="far fa-images"></div>
-            <div id="background-dd" class="bkgd-dd-content">
-              <div class="background-opt">Dark Mode</div>
-              <div class="background-opt">Light Mode</div>
-              <div class="background-opt">Black Screen</div>
-              <div class="background-opt">Fireplace</div>
-              <div class="background-opt">Rain</div>
-              <div class="background-opt">Winter Street</div>
-            </div>
-           </div>
-        </div>
       </section>
+
+
+
+
+      <div class="hidden" id="description">
+        <p class="description">
+          Aura is a white noise app designed to aid in relaxation and focus during the day and better sleep at night.
+        </p>
+      </div>
+
+
+
 
       <section class="volume-control-cont">
         <input id="vol-control" type="range" min="0" max="1" step=".01" />

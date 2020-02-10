@@ -181,8 +181,8 @@ export default class AudioMaster {
       volumeControl.addEventListener("mouseup", setVolume);
       volumeControl.addEventListener("click", setVolume);
 
-      console.log("volumeControl:", volumeControl.value)
-      console.log("sound:", sound.volume())
+      // console.log("volumeControl:", volumeControl.value)
+      // console.log("sound:", sound.volume())
 
       loopButton.addEventListener("change", e => {
         const loop = sound.loop();

@@ -18,10 +18,8 @@ export default class BackgroundMaster {
       let option = backgroundOptions.item(i);
 
       option.addEventListener("click", () => {
-        // console.log("clicked!")
         let body = document.querySelector("body");
         let text = option.textContent;
-        // console.log(text)
 
         if (text === "Dark Mode") {
           body.className = ""

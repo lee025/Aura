@@ -54,7 +54,6 @@ Users also have the ability to change between different backgrounds. Selecting a
 
 <img src="dist/images/background-sc.png">
 
-
 One event listener is listening for a click on the background dropdown button another for whichever option is selected. Class names are added/removed based on whichever option the user selects:
 ```
 backgroundDropDown() {

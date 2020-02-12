@@ -290,7 +290,7 @@ main {
   margin: 20% auto;
   padding: 20px;
   width: 50%;
-  height: 30%;
+  height: 20%;
   border-radius: 5px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 
     0 7px 20px 0 rgba(0,0,0,0.17);
@@ -340,12 +340,12 @@ main {
     opacity: 1;
   }
   99%{
-    height: 30%;
+    height: 20%;
     /* width: 50%; */
     opacity: 1;
   }
   100%{
-    height: 30%;
+    height: 20%;
     top: 0;
     /* width: 50%; */
     opacity: 0;

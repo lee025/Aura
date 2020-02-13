@@ -16,14 +16,19 @@ export default class About {
       let option = aboutOptions.item(i);
       let about = document.getElementById("about");
       let description = document.getElementById("description");
-      let close = document.getElementsByClassName("closeBtn");
+      let close1 = document.getElementsByClassName("1");
+      let close2 = document.getElementsByClassName("2");
 
-      option.addEventListener("click", () => {
+      // window.addEventListener("click", (e) => {
+      //   if (e.target !== option) { console.log("I GOT HIT!!!") }
+      // })
+
+      option.addEventListener("click", (e) => {
         let text = option.textContent;
 
         if (text === "About"){
           about.style.display = "block";
-          close[0].addEventListener("click", () => {
+          close1[0].addEventListener("click", () => {
             about.style.display = "none";
           })
           window.addEventListener("click", (e) => {
@@ -31,7 +36,7 @@ export default class About {
           })
         } else if (text === "Description"){
           description.style.display = "block";
-          close[0].addEventListener("click", () => { 
+          close2[0].addEventListener("click", () => { 
             description.style.display = "none";
           })
           window.addEventListener("click", (e) => {
@@ -40,6 +45,7 @@ export default class About {
         } else {
 
         }
+
 
         document.getElementById("about-dd").classList.toggle("show");
       })

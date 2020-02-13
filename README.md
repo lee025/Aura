@@ -88,4 +88,5 @@ Updating the classList utilizes the nested CSS selectors created using Sass and 
 
 ## Future directions
 - Alarm Clock feature
+- Responsive design for media queries
 - Utilize local storage for CRUD of uploads

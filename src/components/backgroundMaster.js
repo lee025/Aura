@@ -39,7 +39,7 @@ export default class BackgroundMaster {
         } else if (text === "Winter Street") {
           body.className = ""
           body.classList.add("winter-street")
-        }
+        } 
 
         document.getElementById("background-dd").classList.toggle("show")
       })

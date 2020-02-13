@@ -1,5 +1,28 @@
 body {
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
+  /* font-family: Verdana, Geneva, sans-serif;
+  font-size: 25px;
+  letter-spacing: -2.4px;
+  word-spacing: 3px;
+  color: #000000;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: uppercase; */
+
+  /* font-family: monaco, Consolas, "Lucida Console", monospace; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 400; 
+  line-height: 30px;  */
+
+
+  font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif; 
+  /* font-style: normal;  */
+  /* font-variant: normal;  */
+  /* font-weight: 400;  */
+  /* line-height: 30px; */
 }
 
 main {
@@ -183,6 +206,7 @@ main {
 .dd-content {
   display: none;
   position: absolute;
+  left: 125px;
   background-color: #f1f1f1;
   min-width: 150px;
   overflow: auto;
@@ -289,8 +313,8 @@ main {
   background-color: #f4f4f4;
   margin: 20% auto;
   padding: 20px;
-  width: 50%;
-  height: 20%;
+  width: 40%;
+  height: 25%;
   border-radius: 5px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 
     0 7px 20px 0 rgba(0,0,0,0.17);
@@ -299,14 +323,23 @@ main {
 }
 
 .about-content {
-  margin: auto 30%;
+  margin: auto 25%;
+  font-size: 1.2em;
 }
 
 .description-content {
   margin: auto 10%;
 }
 
+.about-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+}
+
 .about-links li {
+  display: block;
   list-style-type: none;
   margin: 20px auto;
 }
@@ -340,12 +373,12 @@ main {
     opacity: 1;
   }
   99%{
-    height: 20%;
+    height: 25%;
     /* width: 50%; */
     opacity: 1;
   }
   100%{
-    height: 20%;
+    height: 25%;
     top: 0;
     /* width: 50%; */
     opacity: 0;
@@ -609,6 +642,8 @@ main {
 .black .top-nav{
   color: #E2E2E2;
 }
+
+
 
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,6 +1,6 @@
 const backgroundButton = document.getElementsByClassName("fa-images");
 const backgroundOptions = document.getElementsByClassName("background-opt");
-
+const aboutDD = document.getElementById("about-dd");
 
 export default class BackgroundMaster {
   constructor(backgroundButton) {
@@ -10,8 +10,12 @@ export default class BackgroundMaster {
   }
 
   backgroundDropDown() {
-    backgroundButton[0].addEventListener("click", () => {
-      document.getElementById("background-dd").classList.toggle("show");
+    backgroundButton[0].addEventListener("click", (e) => {
+      if(aboutDD.classList.contains("show")){
+        aboutDD.classList.toggle("show");
+      }
+      document.getElementById("background-dd").classList.toggle("show")
+      e.stopPropagation();
     })
 
     for (let i = 0; i < backgroundOptions.length; i++) {

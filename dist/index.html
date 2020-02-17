@@ -14,6 +14,8 @@
 
   <body>
     <!-- <script src="/node_modules/howler/dist/howler.js"></script> -->
+
+    <!-- favicon -->
     <script>
       var link = document.createElement('link');
       link.type = 'image/png';
@@ -21,6 +23,38 @@
       link.href = "https://img.icons8.com/carbon-copy/100/000000/stones.png";
       document.getElementsByTagName('head')[0].appendChild(link);
     </script>
+
+    <!-- window click close dropdown -->
+    <script>
+      // let ddArray;
+      // const getOptions = function(){
+      //   let options = [];
+
+      //   let aboutOptions = document.getElementsByClassName("about-opt");
+      //   for (let i = 0; i < aboutOptions.length; i++) { options.push(aboutOptions.item(i)) }
+
+      //   let backgroundOptions = document.getElementsByClassName("background-opt");
+      //   for (let i = 0; i < backgroundOptions.length; i++) { options.push(backgroundOptions.item(i)) }
+
+      //   return options;
+      // };
+      
+      // ddArray = getOptions()
+      // console.log(ddArray)
+
+      let ddArray = ["about-dd", "background-dd"]
+
+      for( let i = 0; i < ddArray.length; i++ ){
+        window.addEventListener('click', function(e){
+          let option = document.getElementById(ddArray[i]);
+          if(e.target !== option && e.target.parentElement !== option){
+            option.classList.remove("show") 
+          }
+        })
+      }
+
+    </script>
+
     <main>
 
       <section class="top-nav">
@@ -93,7 +127,7 @@
         <input id="vol-control" type="range" min="0" max="1" step=".01" />
       </section>
 
-      <section id="playing" class="hidden"></section>
+      <!-- <section id="playing" class="hidden"></section> -->
 
       <section id="audio"></section>
 

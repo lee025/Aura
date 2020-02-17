@@ -1,5 +1,7 @@
 const aboutButton = document.getElementsByClassName("fa-comment-dots");
 const aboutOptions = document.getElementsByClassName("about-opt");
+const aboutDD = document.getElementById("about-dd");
+const backgroundDD = document.getElementById("background-dd");
 
 export default class About {
   constructor(){
@@ -8,9 +10,14 @@ export default class About {
 
 
   aboutDropDown(){
-    aboutButton[0].addEventListener("click", () => {
-      document.getElementById("about-dd").classList.toggle("show");
+    aboutButton[0].addEventListener("click", (e) => {
+      if (backgroundDD.classList.contains("show")) {
+        backgroundDD.classList.toggle("show");
+      }
+      aboutDD.classList.toggle("show")
+      e.stopPropagation();
     })
+
 
     for (let i = 0; i < aboutOptions.length; i++) {
       let option = aboutOptions.item(i);
@@ -19,9 +26,11 @@ export default class About {
       let close1 = document.getElementsByClassName("1");
       let close2 = document.getElementsByClassName("2");
 
+
       // window.addEventListener("click", (e) => {
-      //   if (e.target !== option) { console.log("I GOT HIT!!!") }
+      //   if (e.target !== option) { aboutDD.classList.toggle("show") }
       // })
+
 
       option.addEventListener("click", (e) => {
         let text = option.textContent;
@@ -45,10 +54,11 @@ export default class About {
         } else {
 
         }
-
-
         document.getElementById("about-dd").classList.toggle("show");
       })
     }
+    // window.addEventListener("click", () => {
+    //   document.getElementById("about-dd").classList.toggle("show");
+    // })
   }
 }

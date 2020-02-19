@@ -171,8 +171,8 @@ export default class AudioMaster {
       function setVolume(){
         let control = volumeControl.value;
         let vol = sound.volume();
-        console.log("control:", control);
-        console.log("vol:", vol);
+        // console.log("control:", control);
+        // console.log("vol:", vol);
         if (control !== vol) { vol = sound.volume(vol + (control - vol)) }
       }
 

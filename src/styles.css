@@ -30,8 +30,34 @@ main {
   margin-right: 1em;
 }
 
+.top-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: fixed;
+  background: white;
+  top: 0;
+  left: 0;
+  height: 75px;
+  width: 100%;
+  border-bottom: 1px solid #d6d5d5;
+  z-index: 1;
+}
+
+.about-dd-btn {
+  padding-left: 30px;
+}
+
+.btn {
+  z-index: 2;
+}
+
 #audio {
   margin-bottom: 10%;
+  padding-top: 15%;
 }
 
 .volume-control-cont {
@@ -42,7 +68,11 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 15px 0px;
-  width: 100%;
+  /* width: 96%; */
+  left: 45%;
+  position: fixed;
+  padding-top: 0.5%;
+  z-index: 2;
 }
 
 .audio-file {
@@ -174,7 +204,7 @@ main {
 }
 
 /* SLEEP TIMER DROPDOWN */
-.top-nav{
+/* .top-nav{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -182,7 +212,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 25px;
-}
+} */
 
 #sleep-timer-cont {
   padding-left: 10px;
@@ -314,12 +344,14 @@ main {
   margin: 20% auto;
   padding: 20px;
   width: 40%;
-  height: 25%;
+  height: 30%;
   border-radius: 5px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 
     0 7px 20px 0 rgba(0,0,0,0.17);
   animation-name: open-animation;
   animation-duration: .5s;
+  min-height: 200px;
+  min-width: 300px;
 }
 
 .about-content {
@@ -368,18 +400,19 @@ main {
 @keyframes open-animation{
   0%{
     height: 0;
-    top: 50%;
+    /* top: 50%; */
     /* width: 0; */
     opacity: 1;
   }
   99%{
     height: 25%;
+    /* top: 75%; */
     /* width: 50%; */
     opacity: 1;
   }
   100%{
-    height: 25%;
-    top: 0;
+    height: 30%;
+    /* top: 0; */
     /* width: 50%; */
     opacity: 0;
   }  
@@ -422,6 +455,7 @@ main {
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   /* z-index: 1; */
   border-radius: 5px;
+
 }
 
 .bkgd-dd-content .background-opt {
@@ -453,6 +487,21 @@ main {
 .dark {
   background: #121212;
   color: #E2E2E2;
+}
+
+.dark .top-nav {
+  background: #121212;
+  border-bottom: 1px solid #282828;
+}
+
+.dark .modal {
+  background: #282828;
+  color: #E2E2E2;
+  -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+  box-shadow: 0px 19px 38px #0A0A0A;
+}
+.dark .about-links a:hover{
+  color: white;
 }
 
 .dark .audio-file {
@@ -520,6 +569,21 @@ main {
   color: white;
 }
 
+.fireplace .top-nav {
+  background: #461809;
+  border-bottom: 1px solid #461809;
+}
+
+.fireplace .modal {
+  background: #461809;
+  color: #E2E2E2;
+  -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+  box-shadow: 0px 19px 38px #0A0A0A;
+}
+.fireplace .about-links a:hover{
+  color: white;
+}
+
 .fireplace .audio-file {
   background: #461809;
   border: 1px solid #461809;
@@ -574,6 +638,21 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
+}
+
+.rain .top-nav {
+  background: #1D1D1D;
+  border-bottom: 1px solid #1D1D1D;
+}
+
+.rain .modal {
+    background: #1D1D1D;
+    color: #E2E2E2;
+    -webkit-box-shadow: 0px 19px 38px #0A0A0A;
+    box-shadow: 0px 19px 38px #0A0A0A;
+}
+.rain .about-links a:hover{
+    color: white;
 }
 
 .rain .audio-file {

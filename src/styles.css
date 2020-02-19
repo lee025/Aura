@@ -236,6 +236,7 @@ main {
 .dd-content {
   display: none;
   position: absolute;
+  top: 55px;
   left: 125px;
   background-color: #f1f1f1;
   min-width: 150px;
@@ -285,6 +286,7 @@ main {
 .about-dd-content {
   display: none;
   position: absolute;
+  top: 55px;
   left: 20px;
   background-color: #f1f1f1;
   min-width: 150px;
@@ -447,6 +449,7 @@ main {
 .bkgd-dd-content {
   display: none;
   position: absolute;
+  top: 55px;
   left: 75px;
   background-color: #f1f1f1;
   min-width: 150px;

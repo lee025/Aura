@@ -2,6 +2,7 @@ const aboutButton = document.getElementsByClassName("fa-comment-dots");
 const aboutOptions = document.getElementsByClassName("about-opt");
 const aboutDD = document.getElementById("about-dd");
 const backgroundDD = document.getElementById("background-dd");
+const sleepDD = document.getElementById("sleep-dd");
 
 export default class About {
   constructor(){
@@ -11,8 +12,9 @@ export default class About {
 
   aboutDropDown(){
     aboutButton[0].addEventListener("click", (e) => {
-      if (backgroundDD.classList.contains("show")) {
+      if (backgroundDD.classList.contains("show") || sleepDD.classList.contains("show")) {
         backgroundDD.classList.toggle("show");
+        // sleepDD.classList.toggle("show");
       }
       aboutDD.classList.toggle("show")
       e.stopPropagation();
@@ -25,12 +27,6 @@ export default class About {
       let description = document.getElementById("description");
       let close1 = document.getElementsByClassName("1");
       let close2 = document.getElementsByClassName("2");
-
-
-      // window.addEventListener("click", (e) => {
-      //   if (e.target !== option) { aboutDD.classList.toggle("show") }
-      // })
-
 
       option.addEventListener("click", (e) => {
         let text = option.textContent;
@@ -57,8 +53,6 @@ export default class About {
         document.getElementById("about-dd").classList.toggle("show");
       })
     }
-    // window.addEventListener("click", () => {
-    //   document.getElementById("about-dd").classList.toggle("show");
-    // })
+    
   }
 }

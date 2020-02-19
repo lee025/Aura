@@ -1,8 +1,9 @@
-import AudioMaster from "./audioMaster";
-
 const sleepTimer = document.querySelector("#sleep-timer-cont");
 const sleepTimerButton = document.getElementsByClassName("fa-clock");
 const sleepTimerOptions = document.getElementsByClassName("option");
+const sleepDD = document.getElementById("sleep-dd");
+const backgroundDD = document.getElementById("background-dd");
+const aboutDD = document.getElementById("about-dd");
 
 // export default class SleepTimer extends AudioMaster {
 export default class SleepTimer {
@@ -14,11 +15,17 @@ export default class SleepTimer {
   }
 
   sleepDropDown() {
-    sleepTimerButton[0].addEventListener("click", () => {
-      document.getElementById("sleep-dd").classList.toggle("show");
+    sleepTimerButton[0].addEventListener("click", (e) => {
+      if(backgroundDD.classList.contains("show")) {
+        backgroundDD.classList.toggle("show");
+      }
+      if(aboutDD.classList.contains("show")) {
+        aboutDD.classList.toggle("show");
+      }
+        sleepDD.classList.toggle("show");
+        e.stopPropagation();
     })
 
-    // console.log(sleepTimerOptions)
     for (let i = 0; i < sleepTimerOptions.length; i++) {
       // console.log(sleepTimerOptions.item(i));
 
@@ -59,11 +66,6 @@ export default class SleepTimer {
           return hr + ":" + min + ":" + sec;
         };
 
-        // function timer() {
-        //   counter++
-        //   sleepTimer.textContent = getSeconds(start - counter)
-        //   if (counter === start) { clearInterval(interval) }
-        // };
       })
     }
   }

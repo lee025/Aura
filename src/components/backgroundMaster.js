@@ -6,17 +6,15 @@ const sleepDD = document.getElementById("sleep-dd");
 
 export default class BackgroundMaster {
   constructor(backgroundButton) {
-    // this.ctx = backgroundButton;
     this.backgroundDropDown();
 
   }
 
   backgroundDropDown() {
     backgroundButton[0].addEventListener("click", (e) => {
-      if (aboutDD.classList.contains("show") || sleepDD.classList.contains("show")){
-        aboutDD.classList.toggle("show");
-        // sleepDD.classList.toggle("show");
-      }
+      if (aboutDD.classList.contains("show")){aboutDD.classList.toggle("show")}
+      if(sleepDD.classList.contains("show")){sleepDD.classList.toggle("show")}
+
       backgroundDD.classList.toggle("show")
       e.stopPropagation();
     })

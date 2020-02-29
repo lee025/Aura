@@ -347,6 +347,7 @@ main {
   padding: 20px;
   width: 40%;
   height: 30%;
+  max-height: 200px;
   border-radius: 5px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 
     0 7px 20px 0 rgba(0,0,0,0.17);
@@ -375,7 +376,7 @@ main {
 .about-links li {
   display: block;
   list-style-type: none;
-  margin: 20px auto;
+  margin: 12px auto;
 }
 
 .about-links a {
@@ -540,6 +541,10 @@ main {
   background-color: #121212;
 }
 
+.dark .dd-content {
+  background: #121212;
+}
+
 .dark .dd-content .option {
   background-color: #282828;
   color: #E2E2E2;
@@ -550,12 +555,30 @@ main {
   opacity: .8;
 }
 
+.dark .bkgd-dd-content {
+  background: #121212;
+}
+
 .dark .bkgd-dd-content .background-opt {
   background-color: #282828;
   color: #E2E2E2;
 }
 
 .dark .bkgd-dd-content .background-opt:hover {
+  background-color: #282828;
+  opacity: .8;
+}
+
+.dark .about-dd-content{
+  background: #121212;
+}
+
+.dark .about-dd-content .about-opt {
+  background-color: #282828;
+  color: #E2E2E2;
+}
+
+.dark .about-dd-content .about-opt:hover {
   background-color: #282828;
   opacity: .8;
 }
@@ -616,6 +639,10 @@ main {
   background-color: #E2E2E2;
 }
 
+.fireplace .dd-content{
+  background: #461809;
+}
+
 .fireplace .dd-content .option {
   background-color: #461809;
   color: #E2E2E2;
@@ -626,12 +653,30 @@ main {
   opacity: .8;
 }
 
+.fireplace .bkgd-dd-content {
+  background: #461809;
+}
+
 .fireplace .bkgd-dd-content .background-opt {
   background-color: #461809;
   color: #E2E2E2;
 }
 
 .fireplace .bkgd-dd-content .background-opt:hover {
+  background-color: #461809;
+  opacity: .8;
+}
+
+.fireplace .about-dd-content {
+  background: #461809;
+}
+
+.fireplace .about-dd-content .about-opt {
+  background-color: #461809;
+  color: #E2E2E2;
+}
+
+.fireplace .about-dd-content .about-opt:hover {
   background-color: #461809;
   opacity: .8;
 }
@@ -687,6 +732,10 @@ main {
   background-color: #E2E2E2;
 }
 
+.rain .dd-content {
+  background: #1D1D1D
+}
+
 .rain .dd-content .option {
   background-color: #1D1D1D;
   color: #E2E2E2;
@@ -697,12 +746,30 @@ main {
   opacity: .8;
 }
 
+.rain .bkgd-dd-content {
+  background: #1D1D1D
+}
+
 .rain .bkgd-dd-content .background-opt {
   background-color: #1D1D1D;
   color: #E2E2E2;
 }
 
 .rain .bkgd-dd-content .background-opt:hover {
+  background-color: #1D1D1D;
+  opacity: .8;
+}
+
+.rain .about-dd-content {
+  background: #1D1D1D
+}
+
+.rain .about-dd-content .about-opt {
+  background-color: #1D1D1D;
+  color: #E2E2E2;
+}
+
+.rain .about-dd-content .about-opt:hover {
   background-color: #1D1D1D;
   opacity: .8;
 }
@@ -722,7 +789,9 @@ main {
 }
 
 .black .top-nav{
+  background: #121212;
   color: #E2E2E2;
+  border-bottom: 1px solid transparent;
 }
 
 

@@ -12,10 +12,11 @@ export default class About {
 
   aboutDropDown(){
     aboutButton[0].addEventListener("click", (e) => {
-      if (backgroundDD.classList.contains("show") || sleepDD.classList.contains("show")) {
+      if (backgroundDD.classList.contains("show")) {
         backgroundDD.classList.toggle("show");
-        // sleepDD.classList.toggle("show");
       }
+      if(sleepDD.classList.contains("show")){sleepDD.classList.toggle("show")}
+      
       aboutDD.classList.toggle("show")
       e.stopPropagation();
     })

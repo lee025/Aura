@@ -15,9 +15,7 @@ export default class AudioMaster {
 
   addAudioToPage() {
     const that = this;
-    AudioFiles.forEach(sound => {
-      // debugger
-
+    AudioFiles.forEach((sound, idx) => {
       const audioDiv = document.createElement("div");
       audioDiv.className = "audio-file";
       audioDiv.setAttribute("id", sound.title);
@@ -44,7 +42,8 @@ export default class AudioMaster {
       const stopButton = document.createElement("button");
       stopButton.textContent = "◼︎";
       audioControls.appendChild(stopButton);
-      stopButton.className = "stop-button";
+      stopButton.className = `${idx}`
+      stopButton.classList.add("stop-button");
 
       // toggle loop button
       const loopDiv = document.createElement("div");
@@ -110,7 +109,8 @@ export default class AudioMaster {
         if (!sound.playing()) {
           playTime = 0;
           // loopButton.setAttribute("checked", false);
-          loopButton.toggleAttribute("checked");
+          // loopButton.toggleAttribute("checked");
+          loopButton.checked = 0;
           resetInterval.bind(that);
         }
       }
@@ -133,33 +133,46 @@ export default class AudioMaster {
 
       });
 
-
+      let soundId = "";
+      
       playButton.addEventListener("click", () => {
+        // soundId = sound.play()
+        // console.log("soundId:", soundId)
         this.currentlyPlaying.length === 0 ? this.currentlyPlaying.push(sound.play()) : null;
+
         // if (!sound.playing()) { this.currentlyPlaying.pop() }
-        // if(!this.timerStart.length) {this.timerStart = [0]}
-        // console.log(!this.timerStart.length)
 
         // console.log("play:", this.currentlyPlaying)
+        // console.log("title:", soundTitles)
         // console.log(Math.ceil(sound._duration))
-        // document.getElementById("playing").classList.add("show")
-        // document.getElementById("audio").classList.add("hidden");
+
         // const playingTitle = document.createElement("div");
         // playingTitle.className = "playing-title";
         // playingTitle.textContent = "Currently playing:" + soundTitles[0];
-        // document.getElementById("playing").appendChild(playingTitle);
+        // document.getElementById("title").appendChild(playingTitle);
+        // document.getElementById("title").className = "hidden"
+        // document.getElementById("title").classList.toggle("hidden")
+        
       });
 
       pauseButton.addEventListener("click", () => {
         sound.pause(this.currentlyPlaying[0]);
         this.currentlyPlaying.pop();
+        // soundTitles.pop();
         // console.log("pause:", this.currentlyPlaying)
       });
 
-      stopButton.addEventListener("click", () => {
+      stopButton.addEventListener("click", (e) => {
+        // console.log("Stop-idx:", e.target.classList[0])
         sound.stop(this.currentlyPlaying[0]);
-        this.currentlyPlaying.pop()
-        loopButton.setAttribute("checked", false);
+        this.currentlyPlaying.pop();
+        // soundTitles.pop();
+        // console.log(soundTitles)
+        // document.getElementById("title").classList.toggle("hidden")
+
+
+        // loopButton.setAttribute("checked", false);
+        loopButton.checked = 0
 
         // console.log("stop:", this.currentlyPlaying)
       })

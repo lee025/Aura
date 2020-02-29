@@ -26,23 +26,9 @@
 
     <!-- window click close dropdown -->
     <script>
-      // let ddArray;
-      // const getOptions = function(){
-      //   let options = [];
-
-      //   let aboutOptions = document.getElementsByClassName("about-opt");
-      //   for (let i = 0; i < aboutOptions.length; i++) { options.push(aboutOptions.item(i)) }
-
-      //   let backgroundOptions = document.getElementsByClassName("background-opt");
-      //   for (let i = 0; i < backgroundOptions.length; i++) { options.push(backgroundOptions.item(i)) }
-
-      //   return options;
-      // };
-      
-      // ddArray = getOptions()
-      // console.log(ddArray)
 
       let ddArray = ["about-dd", "background-dd", "sleep-dd"]
+      // let btnArray = ["about-btn", "background-btn", "sleep-btn"]
 
       for( let i = 0; i < ddArray.length; i++ ){
         window.addEventListener('click', function(e){
@@ -60,7 +46,7 @@
       <section class="top-nav">
 
         <div id="about-dd-cont" class="about-dd-btn">
-          <div class="far fa-comment-dots btn"></div>
+          <div class="far fa-comment-dots btn" id="about-btn"></div>
           <div id="about-dd" class="about-dd-content">
             <div class="about-opt">About</div>
             <div class="about-opt">Description</div>
@@ -68,7 +54,7 @@
         </div>
 
         <div id="background-dd-cont">
-          <div class="far fa-images btn"></div>
+          <div class="far fa-images btn" id="background-btn"></div>
           <div id="background-dd" class="bkgd-dd-content">
             <div class="background-opt">Dark Mode</div>
             <div class="background-opt">Light Mode</div>
@@ -80,7 +66,7 @@
         </div>
 
         <div id="sleep-dd-cont">
-          <div class="far fa-clock btn"></div>
+          <div class="far fa-clock btn" id="sleep-btn"></div>
           <div id="sleep-dd" class="dd-content" >
             <div class="option">OFF</div>
             <div class="option">5 sec</div>
@@ -103,9 +89,10 @@
           <span class="closeBtn 1">&times;</span>
           <div class="about-content">
             <ul class="about-links">
-              <li class="fab fa-linkedin"><a href="#">  | linkedin</a></li>
-              <li class="fab fa-github"><a href="#">  | github</a></li>
-              <li class="far fa-folder"><a href="#">  | portfolio</a></li>
+              <li class="fab fa-linkedin"><a href="https://www.linkedin.com/in/deborah-lee-5a7a4828/">  | LinkedIn</a></li>
+              <li class="fab fa-github"><a href="https://github.com/lee025">  | GitHub</a></li>
+              <li class="fab fa-angellist"><a href="https://angel.co/deborah-lee-27">  | AngelList</a></li>
+              <li class="far fa-folder"><a href="https://frosty-noether-31425b.netlify.com/projects.html">  | Portfolio</a></li>
             </ul>
             <p></p>
           </div>

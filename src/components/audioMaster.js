@@ -1,5 +1,5 @@
 import AudioFiles from "../../src/audio.json";
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
 import SleepTimer from "./sleepTimer";
 
 const audioElement = document.querySelector("#audio");
@@ -7,7 +7,6 @@ const sleepTimer = document.querySelector("#sleep-timer-cont");
 
 export default class AudioMaster {
   constructor(audioElement) {
-    // this.ctx = audioElement;
     this.timerStart = new SleepTimer().options;
     this.addAudioToPage();
     this.currentlyPlaying = [];

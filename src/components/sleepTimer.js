@@ -5,10 +5,8 @@ const sleepDD = document.getElementById("sleep-dd");
 const backgroundDD = document.getElementById("background-dd");
 const aboutDD = document.getElementById("about-dd");
 
-// export default class SleepTimer extends AudioMaster {
 export default class SleepTimer {
   constructor() {
-    // this.ctx = sleepTimerButton;
     this.sleepDropDown();
     this.options = [];
     // console.log("SleepTimer Constructor:", this.options)
@@ -19,11 +17,10 @@ export default class SleepTimer {
       if(backgroundDD.classList.contains("show")) {
         backgroundDD.classList.toggle("show");
       }
-      if(aboutDD.classList.contains("show")) {
-        aboutDD.classList.toggle("show");
-      }
-        sleepDD.classList.toggle("show");
-        e.stopPropagation();
+      if(aboutDD.classList.contains("show")) {aboutDD.classList.toggle("show")}
+
+      sleepDD.classList.toggle("show");
+      e.stopPropagation();
     })
 
     for (let i = 0; i < sleepTimerOptions.length; i++) {

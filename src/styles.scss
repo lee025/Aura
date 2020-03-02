@@ -1,5 +1,12 @@
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif; 
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif; 
+  margin-bottom: 2rem;
 }
 
 main {

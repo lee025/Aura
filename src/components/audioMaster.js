@@ -89,8 +89,8 @@ export default class AudioMaster {
           // debugger
           // console.log("audio is playing..." + playTime);
           sound.loop(true);
-          loopButton.checked = 1
           // loopButton.setAttribute("checked", true);
+          loopButton.checked = 1
           playTime++;
           sleepTimer.textContent = getSeconds(this.timerStart[0] - playTime);
 

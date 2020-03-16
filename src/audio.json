@@ -12,8 +12,20 @@
     "src": "Rain.mp3"
   },
   {
+    "title": "OceanWaves",
+    "src": "OceanWaves.mp3"
+  },
+  {
     "title": "Tibetan Bells",
     "src": "TibetanBells.mp3"
+  },
+  {
+    "title": "Clock Tick",
+    "src": "ClockTick.mp3"
+  },
+  {
+    "title": "Street Traffic",
+    "src": "StreetTraffic.mp3"
   },
   {
     "title": "City Centre",
@@ -26,9 +38,5 @@
   {
     "title": "Marbles",
     "src": "Marbles.mp3"
-  },
-  {
-    "title": "Ticking",
-    "src": "Ticking.mp3"
   }
 ]

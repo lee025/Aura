@@ -10,6 +10,7 @@ export default class AudioMaster {
     this.timerStart = new SleepTimer().options;
     this.addAudioToPage();
     this.currentlyPlaying = [];
+    this.soundId = [];
     this.playlist = [];
   }
 
@@ -30,20 +31,20 @@ export default class AudioMaster {
       audioDiv.appendChild(audioControls);
 
       const playButton = document.createElement("button");
-      playButton.textContent = "▶️";
+      // playButton.textContent = "▶️";
       audioControls.appendChild(playButton);
-      playButton.className = "play-button";
+      playButton.className = "fas fa-play";
 
       const pauseButton = document.createElement("button");
-      pauseButton.textContent = "II";
+      // pauseButton.textContent = "II";
       audioControls.appendChild(pauseButton);
-      pauseButton.className = "pause-button";
+      pauseButton.className = "fas fa-pause";
 
       const stopButton = document.createElement("button");
-      stopButton.textContent = "◼︎";
+      // stopButton.textContent = "◼︎";
       audioControls.appendChild(stopButton);
-      stopButton.className = `${idx}`
-      stopButton.classList.add("stop-button");
+      stopButton.className = "fas fa-stop";
+      stopButton.classList.add(`${idx}`);
 
       // toggle loop button
       const loopDiv = document.createElement("div");
@@ -68,8 +69,8 @@ export default class AudioMaster {
 
       function getSeconds(s) {
         let sec = s % 60
-        let min = Math.floor(s / 60);
-        let hr = Math.floor((min / 60));
+        let min = s < 3600 ? Math.floor(s / 60) : Math.floor(s / 60 / (s / 60 / 60) - 1) 
+        let hr = s > 3600 ? Math.floor(s / 60 / 60) : 0;
 
         return hr + ":" + min + ":" + sec;
       };
@@ -139,10 +140,16 @@ export default class AudioMaster {
       playButton.addEventListener("click", () => {
         // soundId = sound.play()
         // console.log("soundId:", soundId)
-        this.currentlyPlaying.length === 0 ? this.currentlyPlaying.push(sound.play()) : null;
+        // this.currentlyPlaying.length === 0 ? this.currentlyPlaying.push(sound.play()) : null;
 
-        // if (!sound.playing()) { this.currentlyPlaying.pop() }
+        const title = sound._src.split('/')[3]
 
+        if (this.currentlyPlaying.length === 0) {
+          this.currentlyPlaying.push(title)
+          this.soundId.push(sound.play())
+          // console.log("play:", this.currentlyPlaying)
+          // console.log("play id:", this.soundId)
+        }
         // console.log("play:", this.currentlyPlaying)
         // console.log("title:", soundTitles)
         // console.log(Math.ceil(sound._duration))
@@ -156,26 +163,46 @@ export default class AudioMaster {
         
       });
 
-      pauseButton.addEventListener("click", () => {
-        sound.pause(this.currentlyPlaying[0]);
+      pauseButton.addEventListener("click", (e) => {
+        const target = (e.target.parentElement.parentElement.getAttribute('id') + '.mp3').replace(/\s/g, '');
+        // console.log("pause: soundId=", target)
+        // console.log("pause: currentlyPLaying=", this.currentlyPlaying[0])
+        if(target === this.currentlyPlaying[0]){
+        sound.pause(this.soundId[0]);
+        this.soundId.pop();
         this.currentlyPlaying.pop();
         // soundTitles.pop();
-        // console.log("pause:", this.currentlyPlaying)
+        } else {
+          return false
+        }
       });
 
       stopButton.addEventListener("click", (e) => {
-        // console.log("Stop-idx:", e.target.classList[0])
-        sound.stop(this.currentlyPlaying[0]);
-        this.currentlyPlaying.pop();
+        // console.log("Equal:", parseInt(e.target.classList[2]) === idx)
+        // console.log("stop-idx", parseInt(e.target.classList[2]))
+        // console.log("idx", idx)
+
+        const target = (e.target.parentElement.parentElement.getAttribute('id') + '.mp3').replace(/\s/g, '');
+        console.log("stop: currentlyPlaying=", this.currentlyPlaying[0])
+        console.log("stop: soundId=", this.soundId[0])
+        console.log("stop: target=", target)
+        
+        if (target === this.currentlyPlaying[0]) {
+          sound.stop(this.soundId[0]);
+          this.currentlyPlaying.pop();
+          this.soundId.pop();
+        } else {
+          return false
+        }
+        loopButton.checked = 0
+
         // soundTitles.pop();
         // console.log(soundTitles)
         // document.getElementById("title").classList.toggle("hidden")
 
 
         // loopButton.setAttribute("checked", false);
-        loopButton.checked = 0
 
-        // console.log("stop:", this.currentlyPlaying)
       })
 
       const volumeControl = document.getElementById("vol-control")

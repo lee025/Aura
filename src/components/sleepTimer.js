@@ -33,7 +33,6 @@ export default class SleepTimer {
       // console.log(option)
 
       option.addEventListener("click", () => {
-        // debugger
         let int = parseInt(option.textContent.split(" ")[0]);
         let text = option.textContent.split(" ")[1];
         // let interval = setInterval(timer, 1000)
@@ -57,8 +56,8 @@ export default class SleepTimer {
 
         function getSeconds(s) {
           let sec = s % 60
-          let min = Math.floor(s / 60);
-          let hr = Math.floor((min / 60));
+          let min = s < 3600 ? Math.floor(s / 60) : (Math.floor(s / 60)) / int;
+          let hr = s > 3600 ? Math.floor(s / 60 / 60) : 0;
 
           return hr + ":" + min + ":" + sec;
         };

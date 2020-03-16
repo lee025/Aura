@@ -145,8 +145,9 @@ export default class AudioMaster {
         const title = sound._src.split('/')[3]
 
         if (this.currentlyPlaying.length === 0) {
-          this.currentlyPlaying.push(title)
-          this.soundId.push(sound.play())
+          this.currentlyPlaying.push(title);
+          this.soundId.push(sound.play());
+          audioDiv.classList.add("playing");
           // console.log("play:", this.currentlyPlaying)
           // console.log("play id:", this.soundId)
         }
@@ -171,6 +172,7 @@ export default class AudioMaster {
         sound.pause(this.soundId[0]);
         this.soundId.pop();
         this.currentlyPlaying.pop();
+        audioDiv.classList.remove("playing");
         // soundTitles.pop();
         } else {
           return false
@@ -183,14 +185,15 @@ export default class AudioMaster {
         // console.log("idx", idx)
 
         const target = (e.target.parentElement.parentElement.getAttribute('id') + '.mp3').replace(/\s/g, '');
-        console.log("stop: currentlyPlaying=", this.currentlyPlaying[0])
-        console.log("stop: soundId=", this.soundId[0])
-        console.log("stop: target=", target)
+        // console.log("stop: currentlyPlaying=", this.currentlyPlaying[0])
+        // console.log("stop: soundId=", this.soundId[0])
+        // console.log("stop: target=", target)
         
         if (target === this.currentlyPlaying[0]) {
           sound.stop(this.soundId[0]);
           this.currentlyPlaying.pop();
           this.soundId.pop();
+          audioDiv.classList.remove("playing");
         } else {
           return false
         }

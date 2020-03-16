@@ -1,7 +1,7 @@
 [
   {
   "title": "White Noise",
-  "src": "BackgroundNoise.mp3"
+  "src": "WhiteNoise.mp3"
   },
   {
     "title": "Crackling Fireplace",
@@ -21,7 +21,7 @@
   },
   {
     "title": "Heart Beat",
-    "src": "HumanHeartbeat.mp3"
+    "src": "HeartBeat.mp3"
   },
   {
     "title": "Marbles",

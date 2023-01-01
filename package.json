@@ -19,7 +19,7 @@
   "devDependencies": {
     "@types/howler": "^2.1.2",
     "cli": "^1.0.1",
-    "webpack": "^4.41.5"
+    "webpack": "^5.75.0"
   },
   "engines": {
     "node": "12.12.0",
